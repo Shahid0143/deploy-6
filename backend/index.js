@@ -28,6 +28,6 @@ app.listen(process.env.port,async()=>{
         console.log(`server is running at port ${process.env.port}`);
     }catch(err){
         console.log(err);
-        console.log("Something Went Wrong!!!");
+        console.log("Something Went Wrong!");
     }
 })
