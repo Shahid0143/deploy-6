@@ -1,13 +1,14 @@
+
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 const Blog = require('../models/blog.model');
 const User = require('../models/user.model');
-
+require("donenv").config()
 const authenticateUser = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(' ')[1];
-    const decodedToken = jwt.verify(token, 'secretKey');
+    const decodedToken = jwt.verify(token, process.env.key);
     req.userData = { userId: decodedToken.userId };
     next();
   } catch (error) {
